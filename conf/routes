@@ -1,0 +1,36 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET    /getAll/:itemId                  controllers.HomeController.getAll(itemId: Long)
+GET    /auth/:username/:password        controllers.HomeController.auth(username: String, password: String)
+GET    /logout                          controllers.HomeController.logout
+
+
+
++ nocsrf
+POST   /product                         controllers.HomeController.insertProduct
+
+GET    /product/:id                     controllers.HomeController.product(id: String)
+
+GET    /productById/:id                 controllers.HomeController.productById(id: String)
+
+
++ nocsrf
+POST   /rent                            controllers.HomeController.insertRent
+
++ nocsrf
+PUT   /rent-update                      controllers.HomeController.rentUpdate
+
++ nocsrf
+POST   /bank-account                    controllers.HomeController.insertBankAccount
+
+GET   /rent/:idloueur                   controllers.HomeController.getAllRent(idloueur: String)
+
++ nocsrf
+POST   /create-payment-intent           controllers.PaymentController.createPaymentIntent
+
++ nocsrf
+POST   /create-payment-connect          controllers.PaymentController.createPaymentTest
